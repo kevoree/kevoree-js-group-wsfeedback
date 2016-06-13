@@ -1,0 +1,18 @@
+add node0 : JavascriptNode
+add sync : WSGroup
+add node0.printer : ConsolePrinter
+add chan : RemoteWSChan
+
+set sync.master = 'node0'
+set chan.host = 'ws.kevoree.org'
+set chan.uuid = '%%id%%'
+set node0.logLevel = 'debug'
+
+attach node0 sync
+
+bind node0.printer.input chan
+
+set sync.onConnect = 'add {nodeName}.ticker: Ticker
+bind {nodeName}.ticker.tick chan'
+
+set sync.onDisconnect = 'remove {nodeName}'

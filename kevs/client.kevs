@@ -1,0 +1,9 @@
+add node0, node1: JavascriptNode
+add sync: WSGroup
+
+attach node0, node1 sync
+set sync.master = 'node0'
+
+set node1.logLevel = 'debug'
+
+network node0.ip.lo 127.0.0.1

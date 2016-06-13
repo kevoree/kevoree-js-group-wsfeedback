@@ -1,0 +1,46 @@
+{
+  "name": "kevoree-group-ws",
+  "version": "5.3.42-SNAPSHOT",
+  "description": "This group uses <strong>WebSockets</strong> to propagate models over the connected nodes.<br/>If the attribute <strong>master</strong> is specified (using the instance name of one of the connected nodes) then a WebSocket server will be listening on that node using the <strong>port</strong> attribute specified in the fragment dictionary of that particular node and every other nodes connected to that group will try to connect to that <strong>master</strong> node.</br>If <strong>master</strong> is empty, then every connected node will try to start a WebSocket server using their <strong>port</strong> fragment attribute.<br/><br/>The attributes <strong>onConnect</strong> and <strong>onDisconnect</strong> expects KevScript strings to be given to them optionally. If set, <strong>onConnect</strong> KevScript will be executed on the <strong>master</strong> node when a new client connects to the master server (and <strong>onDisconnect</strong> will be executed when a node disconnects from the master server)<br/><br/><em>NB: onConnect & onDisconnect can reference the current node that triggered the process by using this notation: {nodeName}</em><br/><em>NB2: {groupName} is also available and resolves to the current WSGroup instance name</em>",
+  "main": "./lib/WSGroup.js",
+  "kevoree": {
+    "package": "org.kevoree.library"
+  },
+  "scripts": {
+    "prepublish": "grunt",
+    "postpublish": "grunt publish"
+  },
+  "keywords": [
+    "kevoree-std-lib",
+    "kevoree",
+    "library",
+    "group"
+  ],
+  "dependencies": {
+    "kevoree-entities": "^8.0.2",
+    "kevoree-kevscript": "^2.1.6",
+    "kevoree-library": "^5.0.4",
+    "pseudoclass": "^1.0.2",
+    "shortid": "^2.2.2",
+    "smart-socket": "^0.3.0",
+    "ws": "^0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.8.0",
+    "grunt-contrib-uglify": "^0.8.1",
+    "grunt-kevoree": "^5.2.2",
+    "grunt-kevoree-genmodel": "^2.0.0",
+    "grunt-kevoree-registry": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevoree/kevoree-js-group-ws.git"
+  },
+  "author": "Maxime Tricoire <max.tricoire@gmail.com>",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kevoree/kevoree-js-group-ws/issues"
+  },
+  "homepage": "https://github.com/kevoree/kevoree-js-group-ws"
+}
